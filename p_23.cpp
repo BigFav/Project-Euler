@@ -43,6 +43,5 @@ int main() {
         if (proper_divisors_sum(i) > i)
             abundant_nums.push_back(i);
     }
-
     cout << non_abundant_sum << endl;
 }
