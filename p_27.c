@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define abs(x) ((x) < 0 ? (-x) : (x))
+#define abs(x) ((x) < 0 ? (-(x)) : (x))
 
 int main() {
     // Hopefully I don't have to go through the other Heegner num derivatives
