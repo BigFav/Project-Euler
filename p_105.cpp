@@ -17,25 +17,25 @@ int *subsetSums;
 
 void subsetSum(int numbers[], int length) {
     int i, j;
-	int sum = 0;
-	for (i = 0; i < length; ++i) {
-		sum += numbers[i];
-	}
-	subset_len = sum + 1;
-	
-    int starts[subset_len];
-	fill_n(starts, subset_len, length + 1);
+    int sum = 0;
+    for (i = 0; i < length; ++i) {
+        sum += numbers[i];
+    }
+    subset_len = sum + 1;
 
-	starts[0] = 0;
-	for (i = 1; i <= subset_len; ++i) {
-		for (j = 1; j <= length; ++j) {
-			int k = i - numbers[j - 1];
-			if (k >= 0 && starts[k] < j) {
-				starts[i] = j;
-				break;
-			}
-		}
-	}
+    int starts[subset_len];
+    fill_n(starts, subset_len, length + 1);
+
+    starts[0] = 0;
+    for (i = 1; i <= subset_len; ++i) {
+        for (j = 1; j <= length; ++j) {
+            int k = i - numbers[j - 1];
+            if (k >= 0 && starts[k] < j) {
+                starts[i] = j;
+                break;
+            }
+        }
+    }
 
     subsetSums = new int[subset_len];
     copy(starts, starts + subset_len, subsetSums);
