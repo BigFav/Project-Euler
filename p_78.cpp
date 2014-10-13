@@ -13,8 +13,20 @@ int p(int n, vector<int> &memo) {
         return memo[n];
     }
 
-    int num_partitions = 0;
-    for (int k = 1; k < n; ++k) {
+    int right_param, num_partitions = 0, k = 1;
+    do {
+        right_param = n - (k*(3*k + 1) >> 1);
+        int right_side = p(right_param, memo);
+        int left_side = p(right_param + k, memo);
+        
+        if (k++ % 2 == 0) {
+            num_partitions -= left_side + right_side;
+        } else {
+            num_partitions += left_side + right_side;
+        }
+    } while (right_param > 0);
+
+    /*for (int k = 1, right_param = 1; right_param < 0; ++k) {
         int right_param = n - (k*(3*k + 1) >> 1);
         int right_side = p(right_param, memo);
         int left_side = p(right_param + k, memo);
@@ -24,11 +36,7 @@ int p(int n, vector<int> &memo) {
         } else {
             num_partitions += left_side + right_side;
         }
-
-        if (right_param <= 0) {
-            break;
-        }
-    }
+    }*/
 
     num_partitions %= 1000000;
     memo.push_back(num_partitions);
