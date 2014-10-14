@@ -5,7 +5,7 @@
 using namespace std;
 
 
-/* Find the sum of numbers that cannot be made of 2 abundant sums.  */
+/* Find the sum of numbers that cannot be made of 2 abundant sums. */
 
 int proper_divisors_sum(int n) {
     int proper_divisors_sum = -n;
@@ -39,11 +39,11 @@ int abundant_sum_check(int num, vector<int> abundant_nums) {
 }
 
 int main() {
-    int non_abundant_sum = 78;
+    unsigned int non_abundant_sum = 20239;
     vector<int> abundant_nums;
     abundant_nums.reserve(5000);
     abundant_nums.push_back(12);
-    for (int i = 13; i <= 20161; ++i) {
+    for (int i = 13; i < 20161; ++i) {
         non_abundant_sum += abundant_sum_check(i, abundant_nums);
         if (proper_divisors_sum(i) > i) {
             abundant_nums.push_back(i);

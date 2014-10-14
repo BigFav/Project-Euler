@@ -4,6 +4,7 @@
 
 static int memo[100000] = {[0 ... 1] = 1, [2] = 2, [3] = 3, [4 ... 99999] = -1};
 
+/* http://mathworld.wolfram.com/PartitionFunctionP.html */
 int p(int n) { 
     if (n < 0) {
         return 0;

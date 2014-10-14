@@ -5,6 +5,7 @@ using namespace std;
 
 /* Find the 1st number whose integer partition is divisible by 1,000,000. */
 
+/* http://mathworld.wolfram.com/PartitionFunctionP.html */
 int p(int n, vector<int> &memo) {
     if (n < 0) {
         return 0;

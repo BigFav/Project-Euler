@@ -1,4 +1,4 @@
-""" Find the n with the largest minimum x solution in Pell's equation. """
+""" Find the n with the largest minimum a solution in Pell's equation. """
 
 # http://en.wikipedia.org/wiki/Chakravala_method
 def chakravala(N):
@@ -27,7 +27,7 @@ def chakravala(N):
         k = (m*m - N) / k
     return a
 
-max_a = max_D = lst_index = 0
+max_a = max_D = 0
 perfect_squares = {n*n for n in xrange(8, 100)}
 for i in xrange(61, 1000):
     if i not in perfect_squares:
