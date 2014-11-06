@@ -8,9 +8,9 @@ from cpython cimport bool
 @cython.boundscheck(False)
 @cython.wraparound(False)
 def main():
-    answer = 0
     cdef bool is_divisible
-    cdef int *div_nums = [2, 3, 5, 7, 11, 13, 17]
+    cdef long long answer = 0
+    cdef char *div_nums = [2, 3, 5, 7, 11, 13, 17]
     for perm in (''.join(i) for i in permutations('0123456789')):
         is_divisible = True
         for i in xrange(1, 8):

@@ -18,7 +18,8 @@ def primes_to(n):
     return np.r_[2,3,((3*np.nonzero(sieve)[0]+1)|1)]
 
 
-num_primes = prime_sum = 0
+num_primes = -4               # omit 2, 3, 5, 7
+prime_sum = -17
 primes = frozenset(primes_to(1000000))
 for prime in primes:
     dividend = 10
@@ -31,8 +32,8 @@ for prime in primes:
 
     if is_trunc_prime:
         prime_sum += prime
-        if num_primes == 14:  # Exit once we've seen all of them
-            break
         num_primes += 1
+        if num_primes == 11:  # Exit once we've seen all of them
+            break
 
-print prime_sum - 17
+print prime_sum

@@ -12,9 +12,8 @@ def is_prime(n):
 
 
 number_str = '987654321'
-while True:
-    pandigitals = filter(is_prime, (int(''.join(i)) for i in permutations(number_str)))
-    if pandigitals:
-        break
+pandigitals = filter(is_prime, (int(''.join(i)) for i in permutations(number_str)))
+while not pandigitals:
     number_str = number_str[1:]
+    pandigitals = filter(is_prime, (int(''.join(i)) for i in permutations(number_str)))
 print pandigitals[0]
