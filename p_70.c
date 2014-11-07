@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 /* Find n, 1 < n < 10^7, with the minimal n/φ(n) ratio, for which φ(n) is a permutation of n. */
 
-int same_digits(int phi_num, int index_num) {
+bool same_digits(int phi_num, int index_num) {
     char digits[10] = {0};
     while (phi_num) {
         ++digits[phi_num % 10];
@@ -12,12 +13,12 @@ int same_digits(int phi_num, int index_num) {
 
     while (index_num) {
         if (digits[index_num % 10] == 0) {
-            return 0;
+            return false;
         }
         --digits[index_num % 10];
         index_num /= 10;
     }
-    return 1;
+    return true;
 }
 
 int main() {

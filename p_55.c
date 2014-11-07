@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 
 /* Find number Lychrel numbers are there below 10,000. */
@@ -12,9 +13,9 @@ unsigned long reverseNumber(unsigned long num) {
     return reverse;
 }
 
-int isPalindrome(unsigned long x) {
+bool isPalindrome(unsigned long x) {
     if (x < 0)
-        return 0;
+        return false;
 
     unsigned long div = 1;
     while (x / div >= 10) {
@@ -24,11 +25,11 @@ int isPalindrome(unsigned long x) {
         unsigned long l = x / div;
         unsigned long r = x % 10;
         if (l != r)
-            return 0;
+            return false;
         x = (x % div) / 10;
         div /= 100;
     }
-    return 1;
+    return true;
 }
 
 int main() {

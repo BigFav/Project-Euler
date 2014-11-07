@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 
 /* Find sum of numbers that are palindrones in base 10 and base 2. */
@@ -6,7 +7,7 @@ int getBit(unsigned int num, int index) {
     return ((1 << index) & num) != 0;
 }
 
-int isBinPalindrome(unsigned int num) {
+bool isBinPalindrome(unsigned int num) {
     int first_one;
     for (int i = 19; 1; --i) {
         if (getBit(num, i)) {
@@ -16,15 +17,15 @@ int isBinPalindrome(unsigned int num) {
     }
     for (int i = first_one, j = 0; i > j; --i, ++j) {
         if (getBit(num, i) ^ getBit(num, j)) {
-            return 0;
+            return false;
         }
     }
-    return 1;
+    return true;
 }
 
-int isTenPalindrome(unsigned int x) {
+bool isTenPalindrome(unsigned int x) {
     if (x < 0)
-        return 0;
+        return false;
     
     unsigned int div = 1;
     while (x / div >= 10) {
@@ -34,11 +35,11 @@ int isTenPalindrome(unsigned int x) {
         unsigned int l = x / div;
         unsigned int r = x % 10;
         if (l != r)
-            return 0;
+            return false;
         x = (x % div) / 10;
         div /= 100;
     }
-    return 1;
+    return true;
 }
 
 int main() {

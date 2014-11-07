@@ -14,7 +14,7 @@ int main() {
     char *sums = malloc(50000000*sizeof(char));
 
     size_t size;
-    int *primes = (int *)primesieve_generate_primes(2, 7772, &size, INT_PRIMES);
+    short *primes = (short *)primesieve_generate_primes(2, 7772, &size, SHORT_PRIMES);
 
     unsigned int sq = 0;
     do {

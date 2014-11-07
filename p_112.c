@@ -1,18 +1,19 @@
 #include <math.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 /* Find the least number for which the proportion of bouncy numbers is exactly 99%. */
 
-int allSame(int num) {
+bool allSame(int num) {
     int digit = num % 10;
     num /= 10;
     while (num) {
         if (digit != num % 10) {
-            return 0;
+            return false;
         }
         num /= 10;
     }
-    return 1;
+    return true;
 }
 
 int reverseNumber(int num) {

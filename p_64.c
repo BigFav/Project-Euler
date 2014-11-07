@@ -1,18 +1,19 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <math.h>
 
 /* How many continued fractions for N ≤ 10000 have an odd period? */
 
-int isNotPerfectSquare(int n) {
+bool isNotPerfectSquare(int n) {
     int h = n & 0xF;
     if (h > 9) {
-        return 1;
+        return true;
     }
     if (h != 2 && h != 3 && h != 5 && h != 6 && h != 7 && h != 8) {
         int t = sqrt(n);
         return t*t != n;
     }
-    return 1;
+    return true;
 }
 
 int contFracExp(int sq) {
