@@ -1,15 +1,16 @@
 #include <stdio.h>
+#include <stdbool.h>
 #define SQ(x) ((x)*(x))
 
 /* Find the integer whose square has the form 1_2_3_4_5_6_7_8_9_0, where each "_" is any number. */
 
-int isntProperFormat(long long num) {
+bool isntProperFormat(long long num) {
     for (int i = 9; i >= 1; --i, num /= 100) {
         if (i != num % 10) {
-            return 1;
+            return true;
         }
     }
-    return 0;
+    return false;
 }
 
 int main() {
